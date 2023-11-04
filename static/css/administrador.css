@@ -1,0 +1,27 @@
+@import url(../css/base.css);
+
+.titulo{
+    backdrop-filter: blur(30px);
+    font-size: 50px;
+    border-weigth: 30px;
+    font-weigth: bold;
+    text-align: center;
+}
+
+div#form_fundo{
+    margin: 2% 50% 5% 5%;
+    position: absolute;
+}
+
+div#form_fundo.listaUsuarios{
+    margin: 2% 1% 5% 51%;
+    position: relative;
+}
+
+div#form_frente.listaUsuarios{
+    text-align: left;
+    font-weigth: bold;
+    font-size: 20px;
+    overflow: scroll;
+    heigth: 250px;
+}
