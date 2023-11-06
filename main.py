@@ -92,7 +92,7 @@ def login():
             usuarioNome = str(usuario[1])
             usuarioSenha = str(usuario[2])
 
-            if nome == 'adm' and senha == '000':
+            if nome == 'adm@artflex.com.br' and senha == '000000000':
                 logado = True
                 return redirect('/adm')
 
