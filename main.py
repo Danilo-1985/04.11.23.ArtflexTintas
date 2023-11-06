@@ -54,7 +54,7 @@ def adm():
     if logado == True:
         conect_BD = mysql.connector.connect(host='localhost', database='usuarios', user='root', password='')
         if conect_BD.is_connected():
-            print('conectado')
+            #print('conectado')
             cursur = conect_BD.cursor()
             cursur.execute('select * from usuario;')
             usuarios = cursur.fetchall()
