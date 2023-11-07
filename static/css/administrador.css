@@ -6,11 +6,13 @@
     border-weigth: 30px;
     font-weigth: bold;
     text-align: center;
+    color:white;
 }
 
 div#form_fundo{
     margin: 2% 50% 5% 5%;
     position: absolute;
+    font-size:20px;
 }
 
 div#form_fundo.listaUsuarios{

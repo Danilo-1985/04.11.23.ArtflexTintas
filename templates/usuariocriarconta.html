@@ -104,11 +104,40 @@
 
     <!-- Login Form -->
     <form action="/cadastrar" id="cadastrar" method="post">
-      <input type="text" id="nome" class="fadeIn second" name="nome" required placeholder="Insira o seu nome">
-      <input type="email" id="email" class="fadeIn second" name="email" required placeholder="Insira o seu e-mail">
-      <input type="password" id="senha" class="fadeIn second" name="senha" required placeholder="Insira a sua senha">
-      <input type="password" id="confirmesenha" class="fadeIn third" name="confirmesenha" required placeholder="Confirme a sua senha">
-      <input type="submit" class="fadeIn fourth" value="Cadastrar">
+      <input type="text"
+             id="nome"
+             class="fadeIn second"
+             name="nome"
+             required
+             placeholder="Insira o seu nome"
+      >
+      <input type="email"
+             id="email"
+             class="fadeIn second"
+             name="email"
+             required
+             placeholder="Insira o seu e-mail"
+      >
+      <input type="password"
+             id="senha"
+             class="fadeIn second"
+             name="senha"
+             required
+             placeholder="Insira a sua senha"
+             maxlength="10"
+             minlength="8"
+      >
+      <input type="password"
+             id="confirmesenha"
+             class="fadeIn third"
+             name="confirmesenha"
+             required
+             placeholder="Confirme a sua senha"
+             maxlength="10"
+             minlength="8"
+      >
+      <input type="submit" class="fadeIn fourth" value="Cadastrar"
+      >
     </form>
 
     <!-- Remind Passowrd -->

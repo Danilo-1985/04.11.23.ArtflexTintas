@@ -11,10 +11,11 @@ body{
 
 div.flash_alerta{
     background-color: red;
-    font-size: 50px;
-    border-radius: 30px;
+    font-size: 30px;
+    border-radius: 15px;
     font-weight: bold;
     text-align: center;
+    color:white;
 }
 
 div#form_fundo{
@@ -66,6 +67,5 @@ button{
 button:hover{
     background-color: white;
     color: black;
-    font-size: 40px;
     cursor: pointer;
 }

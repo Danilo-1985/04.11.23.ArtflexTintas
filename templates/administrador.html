@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
-    <link rel="stylesheet" href="../static/css/administrador.css">
+    <link rel="stylesheet" href="../static/css/login.css">
     <link rel="stylesheet" href="/static/css/carousel.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -15,7 +15,7 @@
 
 <body>
 
-  <header>
+<header>
 <nav class="navbar navbar-expand-lg navbar bg-dark border-bottom fixed-top border-body " data-bs-theme="dark">
   <i class="bi bi-paint-bucket" style="font-size:25px; color:white"></i>
   <div class="container-fluid">
@@ -84,70 +84,83 @@
     </div>
   </div>
 </nav>
-  </header>
+</header>
 
+  <h1 class="titulo" style="text-align:center">Administrador</h1>
 
-    {% set menssagem = get_flashed_messages() %}
+  <div id="wrapper fadeInDown">
+  <div id="formContent">
+    <div>
+        <i class="bi bi-paint-bucket" style="font-size:50px"></i>
+        <h3>Cadastrar usuário</h3>
+        <h4>@artflextintas</h4>
+    </div>
+       {% set menssagem = get_flashed_messages() %}
     {% if menssagem %}
-        <div class="flash_alerta">
+        <div class="flash_alerta" style="color:red">
             {{menssagem[0]}}
         </div>
     {% endif %}
-        <h1 class="titulo">Administrador</h1>
+    <!-- Login Form -->
+    <form action="/cadastrarUsuario" id="login" method="post">
+        <input type="email" id="nome" class="fadeIn second" name="nome" placeholder="Insira o seu e-mail">
+        <input type="password"
+             id="senha"
+             class="fadeIn third"
+             name="senha"
+             required
+             placeholder="Insira a sua senha"
+             maxlength="10"
+             minlength="8">
+        <input type="submit" class="fadeIn fourth" value="Cadastrar">
+    </form>
+  </div>
+  </div>
 
-    <div id="form_fundo">
-        <h1>CADASTRAR USUARIO</h1>
-        <h1>@artflextintas</h1>
-        <div id="form_frente">
-            <form action="/cadastrarUsuario" id="login" method="post">
-                <label for="nome">NOME</label>
-                <input type="text" name="nome" id="nome" required placeholder="Digite seu nome"><br><br>
-                <label for="senha" id="senha">SENHA</label>
-                <input type="text" name="senha" id="senha" required placeholder="Digite sua senha"><br><br>
-                <button type="submit" id="btn_login">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>CADASTRAR
-                </button>
-            </form>
+
+<div>
+    <div id="formContent">
+        <div>
+            <i class="bi bi-paint-bucket" style="font-size:50px"></i>
+            <h3>Usuários cadastrados</h3>
+            <h4>@artflextintas</h4>
         </div>
-    </div>
+        {% if usuarios %}
+        {% for c in usuarios %}
 
-    <div id="form_fundo" class="listaUsuarios">
-        <h1>USUARIOS CADASTRADOS</h1>
-        <h1>@artflextintas</h1>
-        <div id="form_frente" class="listaUsuarios">
-            {% if usuarios %}
-                {% for c in usuarios %}
-                <form action="/excluirUsuario" method="post">
-                    <ul>
-                        <input type="hidden" name="usuarioPexcluir" value="{{c[0]}}">
-                        <input type="hidden" name="nome" value="{{c[1]}}">
-                        <li>NOME: {{c[1]}}</li><br>
-                        <li>SENHA: {{c[2]}}</li>
-                    </ul>
-                    <button type="submit">EXCLUIR</button>
-                </form>
-                    ---------------------------------------------
-                {% endfor %}
+    <!-- Login Form -->
+    <form action="/excluirUsuario" method="post">
+        <ul>
+            <input type="hidden" name="usuarioPexcluir" value="{{c[0]}}">
+            <input type="hidden" name="nome" value="{{c[1]}}">
+            <li>NOME: {{c[1]}}</li><br>
+            <li>SENHA: {{c[2]}}</li>
+        </ul>
+        <input type="submit" class="fadeIn fourth" value="Excluir">
+    </form>
+            ---------------------------------------------
+        {% endfor %}
             {% else %}
             <h1>Nao existe usuarios cadastrados</h1>
             {% endif %}
+            </div>
         </div>
+
+  <div>
+  <div id="formContent">
+
+    <div>
+        <i class="bi bi-paint-bucket" style="font-size:50px"></i>
+        <h3>Enviar arquivos</h3>
+        <h4>@artflextintas</h4>
     </div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="documento" id="documento">
+        <input type="submit" class="fadeIn fourth" value="Enviar">
+    </form>
+  </div>
+  </div>
 
-
-    <div id="form_fundo" class="upload">
-        <h1>ENVIAR ARQUIVOS</h1>
-        <div id="form_frente" class="upload">
-            <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name="documento" id="documento"><br><br><br>
-                <button type="submit">ENVIAR</button>
-            </form>
-
-        </div>
-    </div>
 
 <!-- FOOTER -->
   <footer class="container">

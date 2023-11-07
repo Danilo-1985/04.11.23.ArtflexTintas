@@ -92,7 +92,7 @@ def login():
             usuarioNome = str(usuario[1])
             usuarioSenha = str(usuario[2])
 
-            if nome == 'adm@artflex.com.br' and senha == '000000000':
+            if nome == 'adm@artflex.com.br' and senha == '000111222':
                 logado = True
                 return redirect('/adm')
 
@@ -125,7 +125,7 @@ def cadastrarUsuario():
 
 
     logado = True
-    flash(F'{nome} CADASTRADO!!')
+    flash(F'{nome} foi cadastrado(a)!')
     return redirect('/adm')
 
 
@@ -147,7 +147,7 @@ def excluirUsuario():
         conect_BD.close()
 
 
-    flash(F'{nome} EXCLUIDO')
+    flash(F'{nome} foi excluído(a)!')
     return redirect('/adm')
 
 
