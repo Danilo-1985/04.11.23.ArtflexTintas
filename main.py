@@ -101,7 +101,7 @@ def login():
                 return redirect('/usuarios')
 
             if cont >= len(usuariosBD):
-                flash('USUARIO INVALIDO')
+                flash('Usuário inválido')
                 return redirect("/")
     else:
         return redirect('/')
