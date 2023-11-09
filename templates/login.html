@@ -86,6 +86,7 @@
 </nav>
   </header>
 
+
     {% set menssagem = get_flashed_messages() %}
     {% if menssagem %}
         <div class="flash_alerta" style="color:red; background-color: green; color:white; font-size:25px; text-align:center">
@@ -104,7 +105,9 @@
 
     <!-- Login Form -->
     <form action="/login" id="login" method="post">
-      <input type="email" id="nome" class="fadeIn second"
+      <input type="email"
+             id="nome"
+             class="fadeIn second"
              name="nome"
              placeholder="Insira o seu e-mail"
              required

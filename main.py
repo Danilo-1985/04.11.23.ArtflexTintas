@@ -28,24 +28,6 @@ def homepage():
 
 @app.route('/usuariocriarconta')
 def usuariocriarconta():
-    '''global logado
-    nome = request.form.get('nome')
-    email = request.form.get('email')
-    senha = request.form.get('senha')
-    confirmesenha = request.form.get('confirmesenha')
-    conect_BD = mysql.connector.connect(host='localhost', database='usuarios', user='root', password='')
-
-    if conect_BD.is_connected():
-        cursur = conect_BD.cursor()
-        cursur.execute(f"insert into cadastrarusuario values (default, '{nome}', '{email}', '{senha}', '{confirmesenha}');")
-        conect_BD.commit()
-
-    if conect_BD.is_connected():
-        cursur.close()
-        conect_BD.close()
-
-    logado = True
-    flash(F'{nome} CADASTRADO!!')'''
     return render_template('/usuariocriarconta.html')
 
 
