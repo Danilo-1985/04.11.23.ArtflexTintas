@@ -16,16 +16,16 @@
 <body>
 
 <header>
-<nav class="navbar navbar-expand-lg navbar bg-dark border-bottom fixed-top border-body " data-bs-theme="dark">
-    <i class="bi bi-paint-bucket" style="font-size:25px; color:white"></i>
+<nav class="navbar navbar-expand-lg navbar border-bottom fixed-top border-body"  data-bs-theme="warning" style="background-color:#e3e03b">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('homepage')}}">ArtFlex Tintas</a>
+        <li>
+          <a href="{{url_for('homepage')}}" class="navbar-brand d-flex align-items-center">
+            <i class="bi bi-paint-bucket" style="font-size:25px; color:dark"></i>Artflex</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +37,6 @@
             <li><a class="dropdown-item" href="#">Cores mais vendidas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Cor do ano</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
          <li class="nav-item dropdown">
@@ -79,7 +78,7 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Search">
-        <button type="button" class="btn btn-success">Buscar</button>
+        <button type="button" class="btn text-white" style="background-color:SlateGrey">Buscar</button>
       </form>
     </div>
   </div>
@@ -120,21 +119,25 @@
              placeholder="Insira a sua senha"
              maxlength="10"
              minlength="8">
-      <input type="submit" class="fadeIn fourth" value="Login">
+      <input type="submit" class="fadeIn fourth text-dark" style="background-color:#e3e03b" value="Login">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="{{ url_for('usuariocriarconta') }}">Não tem cadastro? Clique aqui!</a>
+      <a class="underlineHover" style="text-decoration: none; color:black" href="{{ url_for('usuariocriarconta') }}">Não tem cadastro? Clique aqui!</a>
     </div>
 
   </div>
 </div>
 
-<footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2017–2023 Company, Inc. &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
+<!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#" style="text-decoration: none; color: black">Voltar ao topo</a></p>
+    <p style="font-size:15px; text-align:center">Copyrigth &copy; 2023 Artflex Tintas - Sua pintura uma obra de arte -
+      Todos os direitos reservados<br>Artflex Tintas. CNPJ 25.391.950/0001-15</p>
+
   </footer>
+
 
  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

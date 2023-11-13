@@ -10,19 +10,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   </head>
 
-  <body>
+  <body style="height: 100%; width: 100%">
 
   <header>
-<nav class="navbar navbar-expand-lg navbar bg-dark border-bottom fixed-top border-body " data-bs-theme="dark">
-  <i class="bi bi-paint-bucket" style="font-size:25px; color:white"></i>
+<nav class="navbar navbar-expand-lg navbar border-bottom fixed-top border-body"  data-bs-theme="warning" style="background-color:#e3e03b">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('homepage')}}">ArtFlex Tintas</a>
+        <li>
+          <a href="{{url_for('homepage')}}" class="navbar-brand d-flex align-items-center">
+            <i class="bi bi-paint-bucket" style="font-size:25px; color:dark"></i>Artflex</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,7 +34,6 @@
             <li><a class="dropdown-item" href="#">Cores mais vendidas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Cor do ano</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
          <li class="nav-item dropdown">
@@ -76,7 +75,7 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Search">
-        <button type="button" class="btn btn-success">Buscar</button>
+        <button type="button" class="btn text-white" style="background-color:SlateGrey">Buscar</button>
       </form>
     </div>
   </div>
@@ -131,20 +130,20 @@
         <img src="../static/imagens/homepagemissao.png" class="bd-placeholder-img rounded-circle" alt="..." width="140" height="140">
         <h2>Missão</h2>
         <p>Proporcionar uma experiencia onde a sua pintura seja uma verdadeira obra de arte.</p>
-        <p><a class="btn btn-secondary" href="#">Ver detalhes &raquo;</a></p>
+        <p><a class="btn" href="#" style="background-color:#e3e03b">Ver detalhes &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img src="../static/imagens/homepagevisao.png" class="bd-placeholder-img rounded-circle" alt="..." width="140" height="140">
 
         <h2>Visão</h2>
         <p>Ser referência nacional em qualidade e atendimento no setor de tintas imobiliárias</p>
-        <p><a class="btn btn-secondary" href="#">Ver detalhes &raquo;</a></p>
+        <p><a class="btn" href="#" style="background-color:#e3e03b">Ver detalhes &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img src="../static/imagens/homepagevalores.png" class="bd-placeholder-img rounded-circle" alt="..." width="140" height="140">
         <h2>Valores</h2>
         <p>Inovação, meio ambiente, responsabilidade com os clientes, diversidade e qualidade.</p>
-        <p><a class="btn btn-secondary" href="#">Ver detalhes &raquo;</a></p>
+        <p><a class="btn" href="#" style="background-color:#e3e03b">Ver detalhes &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -158,7 +157,7 @@
           vernizes, esmaltes e lacas nas linhas Econômicas, Standart, Premium e Super Premium. </p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img src="../static/imagens/homepageartflextintas.png" class="d-block w-100" alt="..." width="500" height="350">
+        <img src="../static/imagens/homepageartflextintas.jpeg" class="d-block w-100" alt="..." width="400" height="400">
       </div>
     </div>
 
@@ -241,6 +240,7 @@
   </div>
 </div>
 
+
 <hr class="featurette-divider">
 
   </div><!-- /.container -->
@@ -248,7 +248,7 @@
 
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#">Voltar ao topo</a></p>
+    <p class="float-end"><a href="#" style="text-decoration: none; color: black">Voltar ao topo</a></p>
     <p style="font-size:15px; text-align:center">Copyrigth &copy; 2023 Artflex Tintas - Sua pintura uma obra de arte -
       Todos os direitos reservados<br>Artflex Tintas. CNPJ 25.391.950/0001-15</p>
 

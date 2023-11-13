@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, flash, send_from_directory
+from flask import Flask, render_template, redirect, request, flash, send_from_directory, make_response, jsonify
 import json
 import ast
 import os
@@ -10,6 +10,7 @@ pasta_atual = caminho.parent
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '71ecabb15a22589b237d0c3cbe56f086'
+app.config['JSON_SORT_KEYS'] = False
 
 logado = False
 
@@ -36,13 +37,63 @@ def adm():
     if logado == True:
         conect_BD = mysql.connector.connect(host='localhost', database='usuarios', user='root', password='')
         if conect_BD.is_connected():
-            #print('conectado')
             cursur = conect_BD.cursor()
             cursur.execute('select * from usuario;')
             usuarios = cursur.fetchall()
         return render_template("administrador.html", usuarios=usuarios)
     if logado == False:
         return redirect('/')
+
+
+#Conexão para o GET no Postman
+@app.route('/api', methods=['GET'])
+def get_usuarios():
+    usuario = request.json
+    #Conexão com o banco de dados
+    conect_BD = mysql.connector.connect(host='localhost', database='usuarios', user='root', password='')
+    cursur = conect_BD.cursor()
+    cursur.execute('select * from usuario')
+    #Busca todos os registros no banco de dados
+    api = cursur.fetchall()
+
+    #Organização da lista de usuários na API
+    usuarios = list()
+    for usuario in api:
+        usuarios.append(
+            {
+                'id': usuario[0],
+                'email': usuario[1],
+                'senha': usuario[2],
+            }
+        )
+
+    #Retorna uma lista de lista de todos os usuários cadastrados no Banco de Dados
+    return make_response(
+        jsonify(
+            memsagem='Lista de usuarios.',
+            usuario=usuarios
+        )
+    )
+
+
+#Conexão para o POST no Postman
+@app.route('/api', methods=['POST'])
+def create_usuarios():
+    usuario = request.json
+    # Conexão com o banco de dados
+    conect_BD = mysql.connector.connect(host='localhost', database='usuarios', user='root', password='')
+    cursur = conect_BD.cursor()
+    # Insert no banco de dados
+    sql = f"insert into usuario (nome, senha) values ('{usuario['nome']}', '{usuario['senha']}')"
+    cursur.execute(sql)
+    conect_BD.commit()
+
+    return make_response(
+        jsonify(
+            mensagem='Usuário cadastrado com sucesso.',
+            usuario=usuario
+        )
+    )
 
 
 @app.route('/usuarios')

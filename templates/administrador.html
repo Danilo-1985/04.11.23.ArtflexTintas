@@ -13,19 +13,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 
-<body>
+<body style="height: 100%; width: 100%">
 
 <header>
-<nav class="navbar navbar-expand-lg navbar bg-dark border-bottom fixed-top border-body " data-bs-theme="dark">
-  <i class="bi bi-paint-bucket" style="font-size:25px; color:white"></i>
+<nav class="navbar navbar-expand-lg navbar border-bottom fixed-top border-body"  data-bs-theme="warning" style="background-color:#e3e03b">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('homepage')}}">ArtFlex Tintas</a>
+        <li>
+          <a href="{{url_for('homepage')}}" class="navbar-brand d-flex align-items-center">
+            <i class="bi bi-paint-bucket" style="font-size:25px; color:dark"></i>Artflex</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,7 +37,6 @@
             <li><a class="dropdown-item" href="#">Cores mais vendidas</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Cor do ano</a></li>
-            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
          <li class="nav-item dropdown">
@@ -79,26 +78,29 @@
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Procurar" aria-label="Search">
-        <button type="button" class="btn btn-success">Buscar</button>
+        <button type="button" class="btn text-white" style="background-color:SlateGrey">Buscar</button>
       </form>
     </div>
   </div>
 </nav>
 </header>
-  {% set menssagem = get_flashed_messages() %}
+
+<main>
+
+<div>
+
+{% set menssagem = get_flashed_messages() %}
     {% if menssagem %}
         <div class="flash_alerta" style="color:red; background-color: green; color:white; font-size:25px; text-align:center">
             {{menssagem[0]}}
         </div>
     {% endif %}
-
+<br><br><br>
 <h1 class="titulo" style="text-align:center">Administrador</h1>
-
-
+<br><br>
 <div class="container text-center">
   <div class="row">
     <div class="col-sm-6 col-md-5 col-lg-6">
-
         <div id="wrapper fadeInDown">
         <div id="formContent">
     <div>
@@ -109,55 +111,20 @@
 
     <!-- Login Form -->
     <form action="/cadastrarUsuario" id="login" method="post">
-        <input type="email" id="nome" class="fadeIn second" name="nome" placeholder="Insira o seu e-mail">
+        <input type="email" id="nome" name="nome" placeholder="Insira o seu e-mail">
         <input type="password"
              id="senha"
-             class="fadeIn third"
              name="senha"
              required
              placeholder="Insira a sua senha"
              maxlength="10"
              minlength="8">
-        <input type="submit" class="fadeIn fourth" value="Cadastrar">
+        <input type="submit" class="text-dark" style="background-color:#e3e03b" value="Cadastrar">
     </form>
-  </div>
-  </div>
+    <hr>
     </div>
 
-    <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
-
-        <div id="formContent">
-        <div>
-            <i class="bi bi-paint-bucket" style="font-size:50px"></i>
-            <h3>Usuários cadastrados</h3>
-            <h4>@artflextintas</h4>
-        </div>
-        {% if usuarios %}
-        {% for c in usuarios %}
-
-    <!-- Login Form -->
-    <form action="/excluirUsuario" method="post">
-        <ul>
-            <input type="hidden" name="usuarioPexcluir" value="{{c[0]}}">
-            <input type="hidden" name="nome" value="{{c[1]}}">
-            <li>NOME: {{c[1]}}</li><br>
-            <li>SENHA: {{c[2]}}</li>
-        </ul>
-        <input type="submit" class="fadeIn fourth" value="Excluir">
-    </form>
-            ---------------------------------------------
-        {% endfor %}
-            {% else %}
-            <h1>Nao existe usuarios cadastrados</h1>
-            {% endif %}
-            </div>
-        </div>
-
-    </div>
-  </div>
-</div>
-
- <div>
+<div>
   <div id="formContent">
     <div>
         <i class="bi bi-paint-bucket" style="font-size:50px"></i>
@@ -166,16 +133,53 @@
     </div>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="documento" id="documento">
-        <input type="submit" class="fadeIn fourth" value="Enviar">
+        <input type="submit" class="text-dark" style="background-color:#e3e03b" value="Enviar">
     </form>
   </div>
+</div>
+
   </div>
+</div>
+
+    <div class="col-sm-6 col-md-5 offset-md-2 col-lg-6 offset-lg-0">
+
+        <div id="formContent">
+        <div>
+            <i class="bi bi-paint-bucket" style="font-size:50px"></i>
+            <h3>Excluir usuário</h3>
+            <h4>@artflextintas</h4>
+        </div>
+
+        {% if usuarios %}
+        {% for c in usuarios %}
+
+    <!-- Login Form -->
+    <form action="/excluirUsuario" method="post">
+        <ul style="list-style-type:none">
+            <input type="hidden" name="usuarioPexcluir" value="{{c[0]}}">
+            <input type="hidden" name="nome" value="{{c[1]}}">
+            <li>Nome: {{c[1]}}</li><br>
+            <li>Senha: {{c[2]}}</li>
+        </ul>
+        <input type="submit" class="text-dark" style="background-color:#e3e03b" value="Excluir">
+    </form>
+    <hr>
+
+        {% endfor %}
+            {% else %}
+            <h1>Nao existe usuarios cadastrados</h1>
+            {% endif %}
+        </div>
+    </div>
 
 <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end"><a href="#">Back to top</a></p>
-    <p>&copy; 2016–2023 Artflex Tintas, Cia. &middot; <a href="#">Privado</a> &middot; <a href="#">Termos</a></p>
+    <p class="float-end"><a href="#" style="text-decoration: none; color: black">Voltar ao topo</a></p>
+    <p style="font-size:15px; text-align:center">Copyrigth &copy; 2023 Artflex Tintas - Sua pintura uma obra de arte -
+      Todos os direitos reservados<br>Artflex Tintas. CNPJ 25.391.950/0001-15</p>
+
   </footer>
+
 </main>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -183,4 +187,5 @@
   </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
 </html>
